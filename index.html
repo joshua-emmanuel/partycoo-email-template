@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Successful Booking Email</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font: inherit;
+        overflow-wrap: break-word;
+      }
+
+      body {
+        font-family: 'Red Hat Text', sans-serif;
+        font-size: 12px;
+        background-image: url("images/ribbon-background.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 700;
+      }
+
+      h1 {
+        letter-spacing: -0.15rem;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #a31e60;
+      }
+
+      p {
+        font-size: .75rem;
+      }
+
+      .grid {
+        display: grid;
+      }
+
+      .flex {
+        display: flex;
+        gap: var(--gap, 1rem);
+      }
+
+      .flex-column {
+        --gap: 0rem;
+        flex-direction: column;
+      }
+
+      .flex-sm-column {
+        flex-direction: column;
+      } @media (min-width: 768px) {
+        .flex-sm-column {
+          flex-direction: row;
+        }
+      }
+
+      .gap-1 {
+        --gap: .35rem;
+      }
+
+      .bottom-border{
+        border-bottom: 1px solid rgba(134, 131, 131, 0.15);
+      }
+
+      .pb-1 {
+        padding-block: 1rem;
+      }
+
+      .mt-1 {
+        margin-top: .35rem;
+      }
+
+      .fs-100 {
+        font-size: 1rem;
+      }
+
+      .justify-content-space-between {
+        justify-content: space-between;
+      }
+
+      .text-orange {
+        color: #ef7f1b;
+      }
+
+      .text-gray {
+        color: #868383;
+      }
+
+      .text-muted {
+        color: #dbdbdb;
+      }
+
+      .fw-bold {
+        font-weight: 700;
+      }
+
+      .container {
+        max-width: 340px;
+        margin-inline: auto;
+      } @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      } @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      } @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      } @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      } @media (min-width: 1400px) {
+        .container {
+          max-width: 1320px;
+        }
+      }
+
+      .wrapper {
+        max-width: 85%;
+        margin-inline: auto;
+      }
+
+      .logo {
+        width: 100px;
+        padding-block: 1rem;
+      }
+
+      header p:nth-of-type(1)  {
+        padding-bottom: .5rem;
+        font-size: 1.5rem;
+      }
+
+      header .wrapper p:nth-of-type(2)  {
+        font-size: .75rem;
+      }
+
+      a {
+        text-decoration: none;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .main-section {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        background-color: #edecec;
+      }
+
+      .main-header {
+        padding-block: 2rem;
+        border-radius: 1rem;
+        background-color: #ef7f1b;
+        color: #ffffff;
+      }
+
+      .booking-summary {
+        padding-block: 2rem;
+      }
+
+      .booking-summary h2 {
+        font-size: .75rem;
+      }
+
+      .order-price p {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .order-details {
+        --gap: 2rem;
+      }
+
+      .sender-and-receiver-details {
+        flex-direction: column;
+      }
+
+      .sender-and-receiver-name {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(134, 131, 131, 0.15);
+      }
+
+      .sender-and-receiver-name,
+      .sender-and-receiver-phone {
+        --gap: 3rem;
+      }
+
+      .mastercard-logo {
+        width: 2rem;
+      }
+
+      .payment-card-number {
+        margin-top: .2rem;
+      }
+
+      .contact-section {
+        max-width: 70%;
+        margin-inline: auto;
+        margin-bottom: 2rem;
+        padding: 1.25rem;
+        border-radius: .5rem;
+        text-align: center;
+        background-color: #ffffff;
+      }
+
+      .contact-section h2 {
+        font-size: 1rem;
+      }
+
+      .contact-section p {
+        padding-block: .5rem 1rem;
+        font-size: .55rem;
+      }
+
+      .btn {
+        padding: .5rem 1rem;
+        border-radius: .25rem;
+        background-color: #ef7f1b;
+      }
+
+      .footer {
+        place-items: center;
+        padding: 2rem;
+        margin-inline: auto;
+      }
+
+      .footer div {
+        place-items: center;
+      }
+
+      @media (min-width: 768px) {
+        h3 {
+          font-size: .85rem;
+        }
+
+        p {
+          font-size: .85rem;
+          margin-top: .2rem;
+        }
+
+        .main-header {
+          padding-block: 4rem;
+        }
+
+        .flex {
+          --gap: 8rem;
+        }
+
+        h1 {
+          font-size: 5rem;
+        }
+
+        .logo {
+          width: 120px;
+        }
+
+        header p:nth-of-type(1)  {
+          padding-bottom: .5rem;
+          font-size: 2.2rem;
+        }
+
+        header .wrapper p:nth-of-type(2)  {
+          width: 60%;
+          font-size: 1rem;
+        }
+
+        .booking-summary h2 {
+          font-size: 1rem;
+        }
+
+        .order-price p {
+          margin-top: 0;
+          font-size: 1.25rem;
+        }
+
+        .order-details {
+          --gap: 8rem;
+        }
+
+        .sender-and-receiver-details {
+          --gap: 1rem;
+          flex-direction: row;
+        }
+        
+        .sender-and-receiver-name {
+          padding-bottom: 0;
+          padding-right: 1rem;
+          border-bottom: 0;
+          border-right: 1px solid rgba(134, 131, 131, 0.15);
+        }
+
+        .total-order-details-and-price .flex {
+          --gap: 1rem;
+        }
+
+        .total-order p {
+          font-size: .75rem;
+        }
+
+        .total-order-details-and-price .flex {
+          place-items: center;
+        }
+
+        .total-order-details-and-price.flex {
+          --gap: 2rem;
+        }
+
+        .contact-section {
+          max-width: 50%;
+          padding-block: 2rem 2.5rem;
+          padding-inline: 5rem;
+        }
+        
+        .contact-section h2 {
+          font-size: 1.75rem;
+        }
+        
+        .contact-section p {
+          padding-block: .8rem 2rem;
+          font-size: 1rem;
+        }
+
+        .btn {
+          padding: .5rem 1rem;
+          border-radius: .25rem;
+          font-size: 1rem;
+          background-color: #ef7f1b;
+        }
+
+        .payment-card.flex {
+          --gap: 1rem;
+        }
+
+        .mastercard-logo {
+          width: 3rem;
+        }
+
+        .footer .flex {
+          --gap: 2rem;
+        }
+
+        div.flex.gap-1 {
+          --gap: .5rem;
+        }
+      }
+
+      @media (min-width: 1200px) {  
+        p {
+          font-size: .85rem;
+        }
+
+        .logo {
+          width: 150px;
+        }
+
+        .sender-and-receiver-details {
+          --gap: 8rem;
+        }
+
+        .sender-and-receiver-name {
+          padding-right: 8rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container">
+        <div class="wrapper">
+          <div class="logo">
+            <img src="images/partycoo-logo.png" alt="">
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <section class="main-section">
+          <header class="main-header">
+            <div class="wrapper">
+              <h1>.thank you</h1>
+              <p>for booking your party with us <span>Mary</span></p>
+              <p>A detailed summary of your party booking is below. If you have questions, we're happy to help. Email <a href="mailto:support@partycoo.com">support@partycoo.com</a> or contact us through other support channels.</p>
+            </div>
+          </header>
+          <section class="booking-summary">
+            <div class="wrapper">
+              <div class="flex justify-content-space-between pb-1 bottom-border">
+                <h2 class="text-orange">Booking Summary</h2>
+                <div class="order-price">
+                  <h3>Total Order Price</h3>
+                  <p class="text-gray">N90,000</p>
+                </div>
+              </div>
+
+              <div class="order-details flex pb-1 bottom-border">
+                <div class="order-id">
+                  <h3>Order ID</h3>
+                  <p class="text-gray">#1084</p>
+                </div>
+
+                <div>
+                  <h3>Order Type</h3>
+                  <p class="text-gray">Birthday Bistro</p>
+                </div>
+
+                <div>
+                  <h3>No. of Guests</h3>
+                  <p class="text-gray">15</p>
+                </div>
+              </div>
+
+              <div class="sender-and-receiver-details flex pb-1 bottom-border">
+                <div class="sender-and-receiver-name flex">
+                  <div>
+                    <h3>Sender</h3>
+                    <p class="text-gray">Mary Peters</p>
+                  </div>
+                  <div>
+                    <h3>Receiver</h3>
+                    <p class="text-gray">Angel Mbakwe</p>
+                  </div>
+                </div>
+                <div class="sender-and-receiver-phone flex">
+                  <div>
+                    <h3>Sender's Phone</h3>
+                    <p class="text-gray">08045678912</p>
+                  </div>
+                  <div>
+                    <h3>Receiver's Phone</h3>
+                    <p class="text-gray">07012478930</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sender-and-receiver-address flex pb-1 bottom-border">
+                <div>
+                  <h3>Sender's Address</h3>
+                  <p class="text-gray">8, Chukwuma Street, Iyana-Ipaja</p>
+                </div>
+                <div>
+                  <h3>Receiver's Address</h3>
+                  <p class="text-gray">20, Adesina Street, Surulere</p>
+                </div>
+              </div>
+
+              <div class="order-data-and-party-date flex pb-1 bottom-border">
+                <div>
+                  <h3>Order Date & Time</h3>
+                  <p class="text-gray">19 Oct. 2022  |  12:14 pm</p>
+                </div>
+                <div>
+                  <h3>Party Date & Time</h3>
+                  <p class="text-gray">23 Oct. 2022  |  8:00 pm</p>
+                </div>
+              </div>
+
+              <div class="total-order pb-1 bottom-border">
+                <h3>Total Order Price</h3>
+                <p class="text-gray">N90,000</p>
+                <p class="text-gray">Birthday Bistrol | <span class="fw-bold">N50,000</span></p>
+                <div class="total-order-details-and-price flex flex-sm-column">
+                  <div class="flex gap-1">
+                    <div>
+                      <img src="images/connector.png" alt="">
+                    </div>
+                    <div>
+                      <p class="text-gray">Cakes</p>
+                      <p class="text-gray mt-1">Red Velvet <span class="fw-bold">(2)</span> | N20,000</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-1">
+                    <div>
+                      <img src="images/connector.png" alt="">
+                    </div>
+                    <div>
+                      <p class="text-gray">Snacks</p>
+                      <p class="text-gray mt-1">Small Chops <span class="fw-bold">(1)</span> | N10,000</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-1">
+                    <div>
+                      <img src="images/connector.png" alt="">
+                    </div>
+                    <div>
+                      <p class="text-gray">Whisky</p>
+                      <p class="text-gray mt-1">Imperial Blues <span class="fw-bold">(1)</span> | N10,000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-sm-column pb-1">
+                <div>
+                  <h3>Payment Method</h3>
+                  <div class="payment-card flex gap-1">
+                    <img class="mastercard-logo" src="images/mastercard-logo.png" alt="">
+                    <p class="payment-card-number text-gray">#### #### #### 6500</p>
+                  </div>
+                </div>
+                <div>
+                  <h3>Username</h3>
+                  <p class="text-gray">Mary Peters</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section class="contact-section">
+            <h2>Need Help?</h2>
+            <p class="text-muted">For any further infos, please click on the link below to contact our amazing client support</p>
+            <a href="mailto:support@partycoo.com" class="btn">Contact Us</a>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer grid">
+      <div class="flex">
+        <a href=""><img src="images/facebook-icon.png" alt="Facebook Icon"></a>
+        <a href=""><img src="images/twitter-icon.png" alt="Twitter Icon"></a>
+        <a href=""><img src="images/instagram-icon.png" alt="Instagram Icon"></a>
+      </div>
+    </footer>
+  </body>
+</html>
