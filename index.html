@@ -37,12 +37,28 @@
       }
 
       body {
+        position: relative;
         font-family: 'Red Hat Text', sans-serif;
         font-size: 12px;
         background-image: url("images/ribbon-background.png");
         background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
+        background-size: 3000px 200px;
+        background-position: center 40%;
+      } @media (min-width: 768px) {
+        body {
+          background-size: 3000px 350px;
+          background-position: center;
+        }
+      } @media (min-width: 992px) {
+        body {
+          background-size: 3000px 400px;
+          background-position: center;
+        }
+      } @media (min-width: 1200px) {
+        body {
+          background-size: 3000px 500px;
+          background-position: center;
+        }
       }
 
       h1,
@@ -177,6 +193,12 @@
         z-index: 0;
       }
 
+      header h1,
+      header p {
+        position: relative;
+        z-index: 1;
+      }
+
       header p:nth-of-type(1)  {
         padding-bottom: .5rem;
         font-size: 1.5rem;
@@ -267,6 +289,10 @@
         padding: .5rem 1rem;
         border-radius: .25rem;
         background-color: #ef7f1b;
+      }
+
+      .btn:hover {
+        background-color: #ff7700;
       }
 
       .footer {
@@ -573,8 +599,8 @@
     <footer class="footer grid">
       <div class="flex">
         <a href=""><img src="images/facebook-icon.png" alt="Facebook Icon"></a>
-        <a href=""><img src="images/twitter-icon.png" alt="Twitter Icon"></a>
-        <a href=""><img src="images/instagram-icon.png" alt="Instagram Icon"></a>
+        <a href="https://twitter.com/mypartycoo"><img src="images/twitter-icon.png" alt="Twitter Icon"></a>
+        <a href="https://www.instagram.com/mypartycoo/"><img src="images/instagram-icon.png" alt="Instagram Icon"></a>
       </div>
     </footer>
   </body>
