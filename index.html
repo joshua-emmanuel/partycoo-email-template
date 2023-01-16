@@ -159,6 +159,24 @@
         padding-block: 1rem;
       }
 
+      .main-header {
+        position: relative;
+      }
+
+      .main-header::after {
+        content: "";
+        background-image: url("images/header-background.png");
+        background-size: cover;
+        background-position: center;
+        opacity: .35;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 0;
+      }
+
       header p:nth-of-type(1)  {
         padding-bottom: .5rem;
         font-size: 1.5rem;
